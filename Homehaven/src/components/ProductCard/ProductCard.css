@@ -2,7 +2,7 @@
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #f7fafc;
   transition: all 0.3s ease;
   position: relative;
@@ -10,7 +10,7 @@
 
 .product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
   border-color: #e2e8f0;
 }
 
@@ -59,7 +59,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: background 0.3s;
 }
 
@@ -144,7 +144,7 @@
   .product-image {
     height: 200px;
   }
-  
+
   .product-info {
     padding: 0.75rem;
   }

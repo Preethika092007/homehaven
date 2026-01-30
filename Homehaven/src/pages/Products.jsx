@@ -18,22 +18,22 @@ const Products = () => {
     const category = searchParams.get('category') || 'all';
     const search = searchParams.get('search') || '';
     setSelectedCategory(category);
-    
+
     let filtered = products;
-    
+
     // Filter by category
     if (category !== 'all') {
       filtered = filtered.filter(product => product.category === category);
     }
-    
+
     // Filter by search term
     if (search) {
-      filtered = filtered.filter(product => 
+      filtered = filtered.filter(product =>
         product.name.toLowerCase().includes(search.toLowerCase()) ||
         product.description.toLowerCase().includes(search.toLowerCase())
       );
     }
-    
+
     setFilteredProducts(filtered);
   }, [searchParams, products]);
 
@@ -84,11 +84,10 @@ const Products = () => {
               {categories.map(category => (
                 <button
                   key={category.id}
-                  className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
-                    selectedCategory === category.id 
-                      ? 'bg-blue-600 text-white' 
+                  className={`w-full text-left px-4 py-2 rounded-md transition-colors ${selectedCategory === category.id
+                      ? 'bg-blue-600 text-white'
                       : 'bg-gray-100 hover:bg-gray-200'
-                  }`}
+                    }`}
                   onClick={() => handleCategoryChange(category.id)}
                 >
                   {category.name} ({category.count})
@@ -103,7 +102,7 @@ const Products = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProducts.map(product => (
-                <ProductCard key={product._id} product={{...product, id: product._id}} />
+                <ProductCard key={product._id} product={{ ...product, id: product._id }} />
               ))}
             </div>
           </main>

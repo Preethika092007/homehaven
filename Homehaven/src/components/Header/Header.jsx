@@ -30,7 +30,7 @@ const Header = () => {
           <Link to="/" className="text-2xl font-bold text-blue-600">
             <h1>HomeHaven</h1>
           </Link>
-          
+
           <nav className="hidden md:flex space-x-8">
             <Link to="/" className="text-gray-700 hover:text-blue-600 transition-colors">Home</Link>
             <Link to="/products" className="text-gray-700 hover:text-blue-600 transition-colors">Products</Link>
@@ -42,26 +42,26 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <form onSubmit={handleSearch} className="hidden md:flex items-center bg-gray-100 rounded-lg px-3 py-2">
               <Search size={20} className="text-gray-500 mr-2" />
-              <input 
-                type="text" 
-                placeholder="Search products..." 
-                className="bg-transparent outline-none" 
+              <input
+                type="text"
+                placeholder="Search products..."
+                className="bg-transparent outline-none"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </form>
-            
+
             <button className="p-2 text-gray-700 hover:text-blue-600 transition-colors">
               <Heart size={20} />
             </button>
-            
+
             <Link to="/cart" className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors">
               <ShoppingCart size={20} />
               {getCartItemsCount() > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">{getCartItemsCount()}</span>
               )}
             </Link>
-            
+
             {isLoggedIn ? (
               <button onClick={handleLogout} className="flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors">
                 <LogOut size={18} />
@@ -73,7 +73,7 @@ const Header = () => {
                 Login
               </Link>
             )}
-            
+
             <button className="md:hidden p-2 text-gray-700">
               <Menu size={20} />
             </button>

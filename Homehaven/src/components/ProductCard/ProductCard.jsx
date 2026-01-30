@@ -27,11 +27,11 @@ const ProductCard = ({ product }) => {
             </button>
           </div>
         </div>
-        
+
         <div className="p-4">
           <h3 className="font-semibold text-lg mb-1">{product.name}</h3>
           <p className="text-gray-600 text-sm mb-2">{product.category}</p>
-          
+
           <div className="flex items-center gap-2">
             {product.originalPrice && (
               <span className="text-gray-400 line-through">₹{product.originalPrice}</span>
@@ -40,8 +40,8 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
       </Link>
-      
-      <button 
+
+      <button
         className="w-full bg-blue-600 text-white py-2 px-4 flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
         onClick={handleAddToCart}
       >

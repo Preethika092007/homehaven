@@ -1,14 +1,14 @@
-const productModel =require("../model/Product");
+const productModel = require("../model/Product");
 
-exports.getProduct =async( req,res)=>{
+exports.getProduct = async (req, res) => {
     try {
 
-        const product= await productModel.find();
+        const product = await productModel.find();
         res.json(product)
-        
+
     } catch (error) {
         console.error(error);
-        res.status(500).json({error:'server error'}) 
+        res.status(500).json({ error: 'server error' })
     }
 }
 exports.getSingleProduct = async (req, res) => {
@@ -31,7 +31,7 @@ exports.postProduct = async (req, res) => {
             return res.status(201).json(products);
         }
 
-        const {name, category, description, price, originalPrice, image } = req.body;
+        const { name, category, description, price, originalPrice, image } = req.body;
         const newProduct = new productModel({ name, category, description, price, originalPrice, image });
         await newProduct.save();
         res.status(201).json(newProduct);

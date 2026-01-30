@@ -139,12 +139,12 @@
   .cart-content {
     grid-template-columns: 1fr;
   }
-  
+
   .cart-item {
     grid-template-columns: 80px 1fr;
     gap: 0.5rem;
   }
-  
+
   .quantity-controls,
   .item-total,
   .remove-btn {

@@ -49,18 +49,18 @@ const ProductDetail = () => {
           <div className="product-image-section">
             <img src={product.image} alt={product.name} />
           </div>
-          
+
           <div className="product-info-section">
             <h1>{product.name}</h1>
 
-            
+
             <div className="price-section">
               {product.originalPrice && <span className="original-price">₹{product.originalPrice}</span>}
               <span className="current-price">₹{product.price}</span>
             </div>
-            
+
             <p className="description">{product.description}</p>
-            
+
             <div className="features">
               <h3>Features:</h3>
               <ul>
@@ -69,7 +69,7 @@ const ProductDetail = () => {
                 ))}
               </ul>
             </div>
-            
+
             <div className="purchase-section">
               <div className="quantity-selector">
                 <label>Quantity:</label>
@@ -79,7 +79,7 @@ const ProductDetail = () => {
                   ))}
                 </select>
               </div>
-              
+
               <div className="action-buttons">
                 <button className="add-to-cart" onClick={handleAddToCart}>
                   <ShoppingCart size={20} />
@@ -90,7 +90,7 @@ const ProductDetail = () => {
                 </button>
               </div>
             </div>
-            
+
             <div className="product-guarantees">
               <div className="guarantee">
                 <Truck size={20} />

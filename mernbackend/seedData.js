@@ -5,7 +5,7 @@ require('dotenv').config();
 const sampleProducts = [
   {
     name: "Modern Sofa",
-    category: "Furniture", 
+    category: "Furniture",
     price: 25000,
     originalPrice: 30000,
     image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400",
@@ -15,7 +15,7 @@ const sampleProducts = [
     name: "Dining Table",
     category: "Furniture",
     price: 15000,
-    image: "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=400", 
+    image: "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=400",
     description: "Elegant dining table for family meals"
   },
   {
@@ -32,10 +32,10 @@ async function seedDatabase() {
   try {
     await mongoose.connect(process.env.DB_URL);
     console.log('Connected to MongoDB');
-    
+
     await Product.deleteMany({});
     await Product.insertMany(sampleProducts);
-    
+
     console.log('Database seeded successfully');
     mongoose.connection.close();
   } catch (error) {
