@@ -16,13 +16,25 @@ const Products = () => {
 
   useEffect(() => {
     const category = searchParams.get('category') || 'all';
+    const search = searchParams.get('search') || '';
     setSelectedCategory(category);
     
-    if (category === 'all') {
-      setFilteredProducts(products);
-    } else {
-      setFilteredProducts(products.filter(product => product.category === category));
+    let filtered = products;
+    
+    // Filter by category
+    if (category !== 'all') {
+      filtered = filtered.filter(product => product.category === category);
     }
+    
+    // Filter by search term
+    if (search) {
+      filtered = filtered.filter(product => 
+        product.name.toLowerCase().includes(search.toLowerCase()) ||
+        product.description.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+    
+    setFilteredProducts(filtered);
   }, [searchParams, products]);
 
   const fetchProducts = async () => {

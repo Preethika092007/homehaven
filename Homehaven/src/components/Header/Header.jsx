@@ -1,16 +1,26 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { ShoppingCart, Search, Menu, User, Heart, LogOut } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
+import { useState } from 'react';
 
 const Header = () => {
   const { getCartItemsCount } = useCart();
   const navigate = useNavigate();
+  const location = useLocation();
+  const [searchTerm, setSearchTerm] = useState('');
   const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
 
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userEmail');
     navigate('/login');
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/products?search=${encodeURIComponent(searchTerm.trim())}`);
+    }
   };
 
   return (
@@ -30,10 +40,16 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <div className="hidden md:flex items-center bg-gray-100 rounded-lg px-3 py-2">
+            <form onSubmit={handleSearch} className="hidden md:flex items-center bg-gray-100 rounded-lg px-3 py-2">
               <Search size={20} className="text-gray-500 mr-2" />
-              <input type="text" placeholder="Search products..." className="bg-transparent outline-none" />
-            </div>
+              <input 
+                type="text" 
+                placeholder="Search products..." 
+                className="bg-transparent outline-none" 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </form>
             
             <button className="p-2 text-gray-700 hover:text-blue-600 transition-colors">
               <Heart size={20} />
