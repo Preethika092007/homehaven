@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { ShoppingCart, Heart, Truck, Shield } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { productAPI } from '../services/api';
+import './ProductDetail.css';
 
 const ProductDetail = () => {
   const { id } = useParams();
